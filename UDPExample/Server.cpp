@@ -129,7 +129,10 @@ int main() {
 				string check_exit = client_message;
 				if (check_exit == "off")
 				{
+					check_exit = "Client #" + i;
+					check_exit += "is off\n";
 					cout << "Client #" << i << " is off\n";
+					send(client_socket[i], check_exit.c_str(), DEFAULT_BUFLEN, 0);
 					client_socket[i] = 0;
 				}
 
